@@ -1,6 +1,5 @@
 // Config array for all dream islands.
-// Each island is spaced 40 units apart along a winding 3D path.
-// TODO: Tune positions and colors per island's emotional feel.
+// Each island is spaced ~40 units apart along a winding 3D path.
 
 export const islands = [
   {
@@ -12,6 +11,8 @@ export const islands = [
     skyColorB: '#FFB74D',
     audioFile: '/audio/childhood.mp3',
     description: 'A place where every blade of grass still holds the magic of the very first time.',
+    narration: 'You remember this light — warm, golden, infinite.',
+    particleCap: 60,
   },
   {
     id: 'fear',
@@ -22,6 +23,8 @@ export const islands = [
     skyColorB: '#4A148C',
     audioFile: '/audio/fear.mp3',
     description: 'In the dark corners of the mind, shadows breathe and whisper your name.',
+    narration: 'Something watches from just outside the edge of seeing.',
+    particleCap: 70,
   },
   {
     id: 'future',
@@ -32,6 +35,8 @@ export const islands = [
     skyColorB: '#00796B',
     audioFile: '/audio/future.mp3',
     description: 'An unwritten horizon where every possibility floats just out of reach.',
+    narration: 'Tomorrow hums with a frequency only the brave can hear.',
+    particleCap: 80,
   },
   {
     id: 'love',
@@ -42,6 +47,8 @@ export const islands = [
     skyColorB: '#AD1457',
     audioFile: '/audio/love.mp3',
     description: 'Two heartbeats that find each other across the infinite silence of the universe.',
+    narration: 'Here, even the silence holds you close.',
+    particleCap: 60,
   },
   {
     id: 'technology',
@@ -52,6 +59,8 @@ export const islands = [
     skyColorB: '#003D20',
     audioFile: '/audio/technology.mp3',
     description: 'Circuits dream in ones and zeros, reaching for the ghost of human warmth.',
+    narration: 'The machine pauses, and for one cycle, it almost feels.',
+    particleCap: 100,
   },
   {
     id: 'death',
@@ -62,6 +71,8 @@ export const islands = [
     skyColorB: '#37474F',
     audioFile: '/audio/death.mp3',
     description: 'The quietest island of all — where every story finally exhales and lets go.',
+    narration: 'All sound fades. Only breath remains.',
+    particleCap: 30,
   },
   {
     id: 'space',
@@ -72,5 +83,7 @@ export const islands = [
     skyColorB: '#1A237E',
     audioFile: '/audio/space.mp3',
     description: 'Adrift in the cathedral of stars, you realise you were always made of light.',
+    narration: 'You are not lost. You are everywhere.',
+    particleCap: 150,
   },
 ]

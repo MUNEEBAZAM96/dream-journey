@@ -1,25 +1,38 @@
-// Sky background — sets scene fog and background gradient feel.
-// Props: colorA (horizon hex), colorB (zenith hex)
-// TODO: Replace with a sky shader (e.g. drei <Sky> or custom GLSL gradient dome).
+// Sky background — smoothly interpolates scene fog and background color
+// between islands as the camera moves.
 
-import { useEffect } from 'react'
-import { useThree } from '@react-three/fiber'
+import { useRef } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
+
+const _colorA = new THREE.Color()
+const _colorB = new THREE.Color()
+const _targetA = new THREE.Color()
+const _targetB = new THREE.Color()
 
 export default function SkyBackground({ colorA = '#87CEEB', colorB = '#1a1a2e' }) {
   const { scene } = useThree()
+  const initialised = useRef(false)
 
-  useEffect(() => {
+  // Set up fog on first render
+  if (!initialised.current) {
     scene.background = new THREE.Color(colorB)
-    scene.fog = new THREE.FogExp2(colorA, 0.008)
+    scene.fog = new THREE.FogExp2(colorA, 0.006)
+    initialised.current = true
+  }
 
-    return () => {
-      scene.background = null
-      scene.fog = null
+  useFrame(() => {
+    // Smoothly lerp background and fog toward target colors
+    _targetA.set(colorA)
+    _targetB.set(colorB)
+
+    if (scene.background) {
+      scene.background.lerp(_targetB, 0.02)
     }
-  }, [scene, colorA, colorB])
+    if (scene.fog) {
+      scene.fog.color.lerp(_targetA, 0.02)
+    }
+  })
 
   return null
-  // TODO: Add a large sphere mesh with gradient vertex colors as a skydome.
-  // TODO: Animate color transition between islands using spring interpolation.
 }
