@@ -1,0 +1,40 @@
+/* ============================================
+   Dream Journey — Global CSS
+   ============================================ */
+
+/* Reset & full-screen canvas */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0015;
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #f0f0f0;
+}
+
+/* HUD nav buttons — placeholder, TODO: replace with glassmorphism cards */
+button {
+  padding: 0.5rem 1.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 2rem;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.9rem;
+  backdrop-filter: blur(8px);
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: scale(1.05);
+}
+
+/* TODO: Add @keyframes fade-in for island name reveal */
+/* TODO: Import Inter from Google Fonts in index.html */
